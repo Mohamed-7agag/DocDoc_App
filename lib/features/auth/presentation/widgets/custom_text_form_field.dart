@@ -1,0 +1,29 @@
+import 'package:doctors_app/core/theming/app_colors.dart';
+import 'package:doctors_app/core/theming/app_style.dart';
+import 'package:flutter/material.dart';
+
+class CustomTextFormField extends StatelessWidget {
+  const CustomTextFormField({super.key, required this.hintText});
+  final String hintText;
+  OutlineInputBorder buildBorder(Color borderSideColor) {
+    return OutlineInputBorder(
+      borderRadius: const BorderRadius.all(Radius.circular(16)),
+      borderSide: BorderSide(color: borderSideColor),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      cursorColor: AppColors.primaryColor,
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: AppStyle.styleRegular14.copyWith(
+          color: AppColors.textFormHintColor,
+        ),
+        enabledBorder: buildBorder(AppColors.textFormBorderColor),
+        focusedBorder: buildBorder(AppColors.primaryColor),
+      ),
+    );
+  }
+}
