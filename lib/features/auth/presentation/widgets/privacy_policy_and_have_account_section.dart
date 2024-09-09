@@ -7,8 +7,8 @@ import 'package:doctors_app/core/theming/font_weight_helper.dart';
 import 'package:doctors_app/features/auth/presentation/widgets/privacy_policy_text.dart';
 import 'package:flutter/material.dart';
 
-class PrivacyPolicyAndHaveNotAccountSection extends StatelessWidget {
-  const PrivacyPolicyAndHaveNotAccountSection({super.key});
+class PrivacyPolicyAndHaveAccountSection extends StatelessWidget {
+  const PrivacyPolicyAndHaveAccountSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +20,16 @@ class PrivacyPolicyAndHaveNotAccountSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Don\'t have an account?',
+              'Already have an account?',
               style:
                   AppStyle.styleRegular12.copyWith(color: AppColors.lightGrey),
             ),
             TextButton(
               onPressed: () {
-                context.pushNamed(Routes.registerViewRoute);
+                context.pushReplacementNamed(Routes.loginViewRoute);
               },
               child: Text(
-                'Sign Up',
+                'Login',
                 style: AppStyle.styleRegular12.copyWith(
                   color: AppColors.primaryColor,
                   fontWeight: FontWeightHelper.bold,
