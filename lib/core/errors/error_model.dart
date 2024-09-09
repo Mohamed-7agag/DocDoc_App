@@ -1,12 +1,12 @@
 class ErrorModel {
-  final int status;
-  final String errorMessage;
+  final int code;
+  final String message;
 
-  ErrorModel({required this.status, required this.errorMessage});
+  ErrorModel({required this.code, required this.message});
   factory ErrorModel.fromJson(Map jsonData) {
     return ErrorModel(
-      errorMessage: jsonData["Message"],
-      status: jsonData["status"],
+      message: jsonData["message"],
+      code: jsonData["code"],
     );
   }
 }

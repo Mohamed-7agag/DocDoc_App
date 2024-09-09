@@ -11,11 +11,15 @@ class RegisterForm extends StatelessWidget {
     return Form(
       child: Column(
         children: [
+          const CustomTextFormField(hintText: 'Name'),
+          verticalSpace(16),
           const CustomTextFormField(hintText: 'Email'),
+          verticalSpace(16),
+          const CustomTextFormField(hintText: 'Your Number'),
           verticalSpace(16),
           const CustomTextFormField(hintText: 'Password'),
           verticalSpace(16),
-          const CustomTextFormField(hintText: 'Your Number'),
+          const CustomTextFormField(hintText: 'Confirm Password'),
           verticalSpace(32),
           CustomButton(title: 'Register', onPressed: () {}),
         ],
