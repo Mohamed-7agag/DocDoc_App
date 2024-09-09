@@ -1,13 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'register_input_model.dart';
+part of 'register_request_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-RegisterInputModel _$RegisterInputModelFromJson(Map<String, dynamic> json) =>
-    RegisterInputModel(
+RegisterRequestModel _$RegisterRequestModelFromJson(
+        Map<String, dynamic> json) =>
+    RegisterRequestModel(
       name: json['name'] as String,
       email: json['email'] as String,
       phone: json['phone'] as String,
@@ -16,7 +17,8 @@ RegisterInputModel _$RegisterInputModelFromJson(Map<String, dynamic> json) =>
       confirmPassword: json['password_confirmation'] as String,
     );
 
-Map<String, dynamic> _$RegisterInputModelToJson(RegisterInputModel instance) =>
+Map<String, dynamic> _$RegisterRequestModelToJson(
+        RegisterRequestModel instance) =>
     <String, dynamic>{
       'name': instance.name,
       'email': instance.email,

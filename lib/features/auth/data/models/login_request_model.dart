@@ -1,16 +1,16 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'login_input_model.g.dart';
+part 'login_request_model.g.dart';
 
 @JsonSerializable()
-class LoginInputModel extends Equatable{
+class LoginRequestModel extends Equatable {
   final String email;
   final String password;
 
-  const LoginInputModel({required this.email, required this.password});
+  const LoginRequestModel({required this.email, required this.password});
 
-  Map<String, dynamic> toJson() => _$LoginInputModelToJson(this);
+  Map<String, dynamic> toJson() => _$LoginRequestModelToJson(this);
 
   @override
   List<Object?> get props => [email, password];

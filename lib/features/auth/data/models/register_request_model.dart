@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'register_input_model.g.dart';
+part 'register_request_model.g.dart';
 
 @JsonSerializable()
-class RegisterInputModel extends Equatable {
+class RegisterRequestModel extends Equatable {
   final String name;
   final String email;
   final String phone;
@@ -13,7 +13,7 @@ class RegisterInputModel extends Equatable {
   @JsonKey(name: 'password_confirmation')
   final String confirmPassword;
 
-  const RegisterInputModel({
+  const RegisterRequestModel({
     required this.name,
     required this.email,
     required this.phone,
@@ -22,10 +22,10 @@ class RegisterInputModel extends Equatable {
     required this.confirmPassword,
   });
 
-  factory RegisterInputModel.fromJson(Map<String, dynamic> json) =>
-      _$RegisterInputModelFromJson(json);
+  factory RegisterRequestModel.fromJson(Map<String, dynamic> json) =>
+      _$RegisterRequestModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$RegisterInputModelToJson(this);
+  Map<String, dynamic> toJson() => _$RegisterRequestModelToJson(this);
 
   @override
   List<Object?> get props => [email, password];
