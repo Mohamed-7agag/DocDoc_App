@@ -19,6 +19,8 @@ class LoginResponseModel {
 
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) =>
       _$LoginResponseModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LoginResponseModelToJson(this);
 }
 
 @JsonSerializable()
@@ -31,6 +33,8 @@ class UserData extends Equatable {
 
   factory UserData.fromJson(Map<String, dynamic> json) =>
       _$UserDataFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserDataToJson(this);
 
   @override
   List<Object?> get props => [token, userName];

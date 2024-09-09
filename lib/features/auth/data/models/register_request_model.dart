@@ -25,6 +25,7 @@ class RegisterRequestModel extends Equatable {
   factory RegisterRequestModel.fromJson(Map<String, dynamic> json) =>
       _$RegisterRequestModelFromJson(json);
 
+  factory RegisterRequestModel.fromMap(Map<String, dynamic> json) => _$RegisterRequestModelFromJson(json);
   Map<String, dynamic> toJson() => _$RegisterRequestModelToJson(this);
 
   @override
