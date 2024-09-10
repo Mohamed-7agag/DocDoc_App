@@ -1,6 +1,7 @@
 import 'package:doctors_app/core/routing/app_router.dart';
 import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/theming/app_colors.dart';
+import 'package:doctors_app/core/utils/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
             );
           },
           onGenerateRoute: AppRouter.generateRoute,
-          initialRoute: Routes.onBoardingViewRoute,
+          initialRoute:  Routes.onBoardingViewRoute,
           debugShowCheckedModeBanner: false,
         );
       },

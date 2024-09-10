@@ -1,3 +1,5 @@
 abstract class AppConstants {
-  static const String appName = "Helper Folder";
+  static const String userToken = "userToken";
 }
+
+bool isLogging = false;

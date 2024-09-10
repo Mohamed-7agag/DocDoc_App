@@ -23,6 +23,8 @@ class AuthRepoImpl implements AuthRepo {
       return Right(LoginResponseModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(Failure(errMessage: e.errorModel.message));
+    } catch (e) {
+      return Left(Failure(errMessage: 'Unexpected error!'));
     }
   }
 
@@ -35,6 +37,8 @@ class AuthRepoImpl implements AuthRepo {
       return Right(RegisterResponseModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(Failure(errMessage: e.errorModel.message));
+    } catch (e) {
+      return Left(Failure(errMessage: 'Unexpected error!'));
     }
   }
 
@@ -45,6 +49,8 @@ class AuthRepoImpl implements AuthRepo {
       return const Right(unit);
     } on ServerException catch (e) {
       return Left(Failure(errMessage: e.errorModel.message));
+    } catch (e) {
+      return Left(Failure(errMessage: 'Unexpected error!'));
     }
   }
 }
