@@ -17,7 +17,10 @@ class DoctorSpecialityItem extends StatelessWidget {
           child: SvgPicture.asset('assets/images/estomic.svg'),
         ),
         verticalSpace(12),
-        Text('General',style: AppStyle.styleRegular12,)
+        Text(
+          'General',
+          style: AppStyle.styleRegular12,
+        )
       ],
     );
   }

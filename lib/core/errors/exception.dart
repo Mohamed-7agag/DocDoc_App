@@ -103,11 +103,9 @@ handleDioException(DioException e) {
       }
 
     case DioExceptionType.cancel:
-      throw CancelException(
-          ErrorModel(message: e.toString(), code: 500));
+      throw CancelException(ErrorModel(message: e.toString(), code: 500));
 
     case DioExceptionType.unknown:
-      throw UnknownException(
-          ErrorModel(message: e.toString(), code: 500));
+      throw UnknownException(ErrorModel(message: e.toString(), code: 500));
   }
 }

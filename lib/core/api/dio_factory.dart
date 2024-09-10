@@ -16,7 +16,7 @@ class DioFactory {
     if (dio == null) {
       dio = Dio();
       dio!
-      ..options.baseUrl = EndPoint.baseUrl
+        ..options.baseUrl = EndPoint.baseUrl
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
       addDioHeaders();

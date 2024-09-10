@@ -32,7 +32,8 @@ class MyApp extends StatelessWidget {
             );
           },
           onGenerateRoute: AppRouter.generateRoute,
-          initialRoute: isLogging ?  Routes.homeViewRoute : Routes.onBoardingViewRoute,
+          initialRoute:
+              isLogging ? Routes.homeViewRoute : Routes.onBoardingViewRoute,
           debugShowCheckedModeBanner: false,
         );
       },

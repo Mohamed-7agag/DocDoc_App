@@ -79,7 +79,7 @@ class CacheHelper {
 
   //!------- these method used to save data in secure storage -------
 
- /// Saves a [value] with a [key] in the FlutterSecureStorage.
+  /// Saves a [value] with a [key] in the FlutterSecureStorage.
   static setSecuredString(String key, String value) async {
     const flutterSecureStorage = FlutterSecureStorage();
     debugPrint(

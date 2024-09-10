@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'recommendation_doctor_item.dart';
 
-class RecommendationDoctorListView extends StatelessWidget {
-  const RecommendationDoctorListView({super.key});
+class DoctorListView extends StatelessWidget {
+  const DoctorListView({super.key});
 
   @override
   Widget build(BuildContext context) {

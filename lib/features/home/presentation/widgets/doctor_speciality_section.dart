@@ -14,7 +14,6 @@ class DoctorSpecialitySection extends StatelessWidget {
         const DoctorSpecialityAndSeeAllSection(),
         verticalSpace(16),
         const DoctorSpecialityHorizontalListView(),
-        
       ],
     );
   }

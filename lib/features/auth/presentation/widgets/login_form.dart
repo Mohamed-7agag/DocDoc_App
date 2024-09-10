@@ -27,7 +27,7 @@ class LoginForm extends StatelessWidget {
             hintText: 'Password',
             controller: context.read<AuthCubit>().passwordController,
           ),
-          verticalSpace(32),
+          verticalSpace(40),
           BlocListener<AuthCubit, AuthState>(
             listener: (context, state) {
               if (state is AuthLoginSuccess) {

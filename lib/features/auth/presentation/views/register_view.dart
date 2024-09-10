@@ -21,8 +21,8 @@ class RegisterView extends StatelessWidget {
               const RegisterTextSection(),
               verticalSpace(36),
               const RegisterForm(),
-              verticalSpace(60),
-              const PrivacyPolicyAndHaveAccountSection()
+              verticalSpace(40),
+              const HaveAccountSection()
             ],
           ),
         ),

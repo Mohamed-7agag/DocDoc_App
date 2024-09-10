@@ -19,7 +19,7 @@ void main() async {
   runApp(const MyApp());
 }
 
-Future<bool> isLoggingUser() async{
+Future<bool> isLoggingUser() async {
   String? token = await CacheHelper.getSecuredString(AppConstants.userToken);
   if (token.isNullOrEmpty()) {
     isLogging = false;

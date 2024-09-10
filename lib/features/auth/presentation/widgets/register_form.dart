@@ -44,7 +44,7 @@ class RegisterForm extends StatelessWidget {
             hintText: 'Confirm Password',
             controller: context.read<AuthCubit>().confirmPasswordController,
           ),
-          verticalSpace(32),
+          verticalSpace(40),
           BlocListener<AuthCubit, AuthState>(
             listener: (context, state) {
               if (state is AuthRegisterSuccess) {

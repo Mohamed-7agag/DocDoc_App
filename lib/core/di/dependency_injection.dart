@@ -13,5 +13,6 @@ void setupGetIt() {
   getIt.registerLazySingleton<ApiServices>(() => ApiServices(dio: dio));
 
   // auth repos
-  getIt.registerLazySingleton<AuthRepo>(() => AuthRepoImpl(apiServices: getIt()));
+  getIt.registerLazySingleton<AuthRepo>(
+      () => AuthRepoImpl(apiServices: getIt()));
 }
