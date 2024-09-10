@@ -16,7 +16,7 @@ class PrivacyPolicyText extends StatelessWidget {
         style: GoogleFonts.inter(
           fontSize: 12.sp,
           fontWeight: FontWeightHelper.regular,
-          color: AppColors.moreLightGrey,
+          color: AppColors.grey60,
         ),
         children: [
           TextSpan(

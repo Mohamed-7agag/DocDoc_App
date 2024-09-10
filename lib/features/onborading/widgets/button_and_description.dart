@@ -19,7 +19,7 @@ class ButtonAndDescription extends StatelessWidget {
           Text(
             textAlign: TextAlign.center,
             'Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.',
-            style: AppStyle.styleRegular10.copyWith(color: AppColors.lightGrey),
+            style: AppStyle.styleRegular10.copyWith(color: AppColors.grey70),
           ),
           verticalSpace(32),
           CustomButton(

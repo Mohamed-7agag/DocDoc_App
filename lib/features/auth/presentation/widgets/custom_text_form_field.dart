@@ -29,10 +29,10 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: AppStyle.styleRegular14.copyWith(
-          color: AppColors.textFormHintColor,
+          color: AppColors.grey50,
         ),
         border: buildBorder(Colors.transparent),
-        enabledBorder: buildBorder(AppColors.textFormBorderColor),
+        enabledBorder: buildBorder(AppColors.grey30),
         focusedBorder: buildBorder(AppColors.primaryColor),
         errorBorder: buildBorder(Colors.red),
       ),

@@ -18,7 +18,7 @@ class RegisterTextSection extends StatelessWidget {
         verticalSpace(8),
         Text(
           "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!",
-          style: AppStyle.styleRegular14.copyWith(color: AppColors.lightGrey),
+          style: AppStyle.styleRegular14.copyWith(color: AppColors.grey70),
         ),
       ],
     );

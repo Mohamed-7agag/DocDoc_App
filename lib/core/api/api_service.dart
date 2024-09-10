@@ -7,8 +7,6 @@ class ApiServices implements ApiRequests {
 
   ApiServices({required Dio dio}) : _dio = dio;
 
-  /// Creates an instance of [ApiServices] with the provided [Dio] instance
-
 //! Get Request
   @override
   Future<dynamic> get(

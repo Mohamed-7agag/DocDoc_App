@@ -21,8 +21,7 @@ class PrivacyPolicyAndHaveNotAccountSection extends StatelessWidget {
           children: [
             Text(
               'Don\'t have an account?',
-              style:
-                  AppStyle.styleRegular12.copyWith(color: AppColors.lightGrey),
+              style: AppStyle.styleRegular12.copyWith(color: AppColors.grey70),
             ),
             TextButton(
               onPressed: () {
