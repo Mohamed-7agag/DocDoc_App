@@ -1,25 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:doctors_app/core/api/api_requests.dart';
-import 'package:doctors_app/core/api/end_points.dart';
 import 'package:doctors_app/core/errors/exception.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ApiServices implements ApiRequests {
   final Dio _dio;
 
-  /// Creates an instance of [ApiServices] with the provided [Dio] instance.
-  ApiServices(this._dio) {
-    _dio
-      ..options.baseUrl = EndPoint.baseUrl
-      ..options.receiveDataWhenStatusError = true
-      ..options.connectTimeout = const Duration(seconds: 20)
-      ..options.receiveTimeout = const Duration(seconds: 20)
-      ..interceptors.add(PrettyDioLogger(
-        requestHeader: true,
-        requestBody: true,
-        responseHeader: true,
-      ));
-  }
+  ApiServices({required Dio dio}) : _dio = dio;
+
+  /// Creates an instance of [ApiServices] with the provided [Dio] instance
 
 //! Get Request
   @override

@@ -7,7 +7,7 @@ part 'login_response_model.g.dart';
 class LoginResponseModel {
   final String message;
   final UserData data;
-  final String status;
+  final bool status;
   final int code;
 
   LoginResponseModel({

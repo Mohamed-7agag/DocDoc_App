@@ -11,7 +11,7 @@ void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   setupGetIt();
-  isLoggingUser();
+  await isLoggingUser();
   await Future.wait([
     CacheHelper.init(),
     ScreenUtil.ensureScreenSize(),
@@ -19,8 +19,8 @@ void main() async {
   runApp(const MyApp());
 }
 
-bool isLoggingUser() {
-  String? token = CacheHelper.getSecuredString(AppConstants.userToken);
+Future<bool> isLoggingUser() async{
+  String? token = await CacheHelper.getSecuredString(AppConstants.userToken);
   if (token.isNullOrEmpty()) {
     isLogging = false;
   } else {

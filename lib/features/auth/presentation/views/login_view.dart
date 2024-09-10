@@ -15,15 +15,17 @@ class LoginView extends StatelessWidget {
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.w),
-        child: Column(
-          children: [
-            verticalSpace(50),
-            const LoginTextSection(),
-            verticalSpace(36),
-            const LoginForm(),
-            verticalSpace(60),
-            const PrivacyPolicyAndHaveNotAccountSection()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              verticalSpace(50),
+              const LoginTextSection(),
+              verticalSpace(36),
+              const LoginForm(),
+              verticalSpace(60),
+              const PrivacyPolicyAndHaveNotAccountSection()
+            ],
+          ),
         ),
       )),
     );

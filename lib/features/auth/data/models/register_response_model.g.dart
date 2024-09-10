@@ -11,7 +11,7 @@ RegisterResponseModel _$RegisterResponseModelFromJson(
     RegisterResponseModel(
       message: json['message'] as String,
       data: UserData.fromJson(json['data'] as Map<String, dynamic>),
-      status: json['status'] as String,
+      status: json['status'] as bool,
       code: (json['code'] as num).toInt(),
     );
 

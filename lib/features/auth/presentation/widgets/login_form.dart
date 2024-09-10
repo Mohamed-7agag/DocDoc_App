@@ -1,5 +1,9 @@
+import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
+import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/utils/widgets/custom_button.dart';
+import 'package:doctors_app/core/utils/widgets/custom_error_dialog.dart';
+import 'package:doctors_app/core/utils/widgets/custom_loading_dialog.dart';
 import 'package:doctors_app/features/auth/presentation/logic/auth_cubit/auth_cubit.dart';
 import 'package:doctors_app/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -24,11 +28,23 @@ class LoginForm extends StatelessWidget {
             controller: context.read<AuthCubit>().passwordController,
           ),
           verticalSpace(32),
-          CustomButton(
-            title: 'Login',
-            onPressed: () {
-              context.read<AuthCubit>().login();
+          BlocListener<AuthCubit, AuthState>(
+            listener: (context, state) {
+              if (state is AuthLoginSuccess) {
+                context.pushReplacementNamed(Routes.homeViewRoute);
+              } else if (state is AuthLoginFailure) {
+                context.pop();
+                customErrorDialog(context, state.errMessage);
+              } else if (state is AuthLoginLoading) {
+                customLoadingDialog(context);
+              }
             },
+            child: CustomButton(
+              title: 'Login',
+              onPressed: () {
+                context.read<AuthCubit>().login();
+              },
+            ),
           ),
         ],
       ),

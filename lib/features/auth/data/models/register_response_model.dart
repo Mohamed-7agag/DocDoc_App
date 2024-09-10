@@ -7,7 +7,7 @@ part 'register_response_model.g.dart';
 class RegisterResponseModel extends Equatable {
   final String message;
   final UserData data;
-  final String status;
+  final bool status;
   final int code;
 
   const RegisterResponseModel({

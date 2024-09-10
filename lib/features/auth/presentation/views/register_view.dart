@@ -14,15 +14,17 @@ class RegisterView extends StatelessWidget {
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.w),
-        child: Column(
-          children: [
-            verticalSpace(50),
-            const RegisterTextSection(),
-            verticalSpace(36),
-            const RegisterForm(),
-            verticalSpace(60),
-            const PrivacyPolicyAndHaveAccountSection()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              verticalSpace(50),
+              const RegisterTextSection(),
+              verticalSpace(36),
+              const RegisterForm(),
+              verticalSpace(60),
+              const PrivacyPolicyAndHaveAccountSection()
+            ],
+          ),
         ),
       )),
     );

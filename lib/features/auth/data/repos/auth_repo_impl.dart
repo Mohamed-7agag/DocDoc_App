@@ -19,12 +19,10 @@ class AuthRepoImpl implements AuthRepo {
       LoginRequestModel loginRequestModel) async {
     try {
       final response = await apiServices.post(EndPoint.login,
-          data: loginRequestModel.toJson());
+          data: loginRequestModel.toJson(), isFormData: true);
       return Right(LoginResponseModel.fromJson(response));
     } on ServerException catch (e) {
-      return Left(Failure(errMessage: e.errorModel.message));
-    } catch (e) {
-      return Left(Failure(errMessage: 'Unexpected error!'));
+      return Left(Failure(errMessage: e.errorModel.message ?? ''));
     }
   }
 
@@ -33,12 +31,10 @@ class AuthRepoImpl implements AuthRepo {
       RegisterRequestModel registerRequestModel) async {
     try {
       final response = await apiServices.post(EndPoint.register,
-          data: registerRequestModel.toJson());
+          data: registerRequestModel.toJson(), isFormData: true);
       return Right(RegisterResponseModel.fromJson(response));
     } on ServerException catch (e) {
-      return Left(Failure(errMessage: e.errorModel.message));
-    } catch (e) {
-      return Left(Failure(errMessage: 'Unexpected error!'));
+      return Left(Failure(errMessage: e.errorModel.message ?? ''));
     }
   }
 
@@ -48,9 +44,7 @@ class AuthRepoImpl implements AuthRepo {
       await apiServices.post(EndPoint.logout);
       return const Right(unit);
     } on ServerException catch (e) {
-      return Left(Failure(errMessage: e.errorModel.message));
-    } catch (e) {
-      return Left(Failure(errMessage: 'Unexpected error!'));
+      return Left(Failure(errMessage: e.errorModel.message ?? ''));
     }
   }
 }

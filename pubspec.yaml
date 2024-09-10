@@ -10,6 +10,8 @@ environment:
   sdk: ^3.5.1
 
 dependencies:
+  awesome_dialog: ^3.2.1
+  cherry_toast: ^1.11.0
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
   dio: ^5.7.0

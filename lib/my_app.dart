@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
             );
           },
           onGenerateRoute: AppRouter.generateRoute,
-          initialRoute:  Routes.onBoardingViewRoute,
+          initialRoute: isLogging ?  Routes.homeViewRoute : Routes.onBoardingViewRoute,
           debugShowCheckedModeBanner: false,
         );
       },

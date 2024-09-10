@@ -31,8 +31,10 @@ class CustomTextFormField extends StatelessWidget {
         hintStyle: AppStyle.styleRegular14.copyWith(
           color: AppColors.textFormHintColor,
         ),
+        border: buildBorder(Colors.transparent),
         enabledBorder: buildBorder(AppColors.textFormBorderColor),
         focusedBorder: buildBorder(AppColors.primaryColor),
+        errorBorder: buildBorder(Colors.red),
       ),
     );
   }

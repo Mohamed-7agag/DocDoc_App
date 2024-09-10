@@ -1,6 +1,8 @@
+import 'package:doctors_app/core/api/dio_factory.dart';
 import 'package:doctors_app/core/cache/cache_helper.dart';
 import 'package:doctors_app/core/utils/app_constants.dart';
 import 'package:doctors_app/features/auth/data/models/login_request_model.dart';
+import 'package:doctors_app/features/auth/data/models/login_response_model.dart';
 import 'package:doctors_app/features/auth/data/models/register_request_model.dart';
 import 'package:doctors_app/features/auth/data/repos/auth_repo.dart';
 import 'package:equatable/equatable.dart';
@@ -28,7 +30,8 @@ class AuthCubit extends Cubit<AuthState> {
       final result = await authRepo.login(loginReqestModel);
       result.fold((failure) {
         emit(AuthLoginFailure(errMessage: failure.errMessage));
-      }, (loginResponse) {
+      }, (loginResponseModel) async {
+        await saveUserToken(loginResponseModel);
         emit(AuthLoginSuccess());
       });
     }
@@ -48,9 +51,7 @@ class AuthCubit extends Cubit<AuthState> {
       final result = await authRepo.register(registerReqestModel);
       result.fold((failure) {
         emit(AuthRegisterFailure(errMessage: failure.errMessage));
-      }, (loginResponse) {
-        CacheHelper.setSecuredString(
-            AppConstants.userToken, loginResponse.data.token!);
+      }, (registerResponseModel) {
         emit(AuthRegisterSuccess());
       });
     }
@@ -58,5 +59,11 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<void> logOut() async {
     await authRepo.logOut();
+  }
+
+  Future<void> saveUserToken(LoginResponseModel loginResponseModel) async {
+    await CacheHelper.setSecuredString(
+        AppConstants.userToken, loginResponseModel.data.token!);
+    DioFactory.setTokenIntoHeaderAfterLogin(loginResponseModel.data.token!);
   }
 }
