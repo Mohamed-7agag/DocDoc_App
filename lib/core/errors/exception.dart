@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:doctors_app/core/helpers/navigator_handler.dart';
 
 import 'error_model.dart';
 
@@ -84,6 +85,7 @@ handleDioException(DioException e) {
           throw BadResponseException(ErrorModel.fromJson(e.response!.data));
 
         case 401: //unauthorized
+          NavigationHandler.goToLoginView();
           throw UnauthorizedException(ErrorModel.fromJson(e.response!.data));
 
         case 403: //forbidden

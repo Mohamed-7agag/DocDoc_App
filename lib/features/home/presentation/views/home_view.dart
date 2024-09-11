@@ -13,20 +13,18 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          children: [
-            verticalSpace(12),
-            const HomeAppBarSection(),
-            const HomeBannerSection(),
-            verticalSpace(24),
-            const DoctorSpecialitySection(),
-            verticalSpace(32),
-            const DoctorsListView(),
-          ],
-        ),
+        body: Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        children: [
+          verticalSpace(12),
+          const HomeAppBarSection(),
+          const HomeBannerSection(),
+          verticalSpace(24),
+          const DoctorSpecialitySection(),
+          verticalSpace(32),
+          const DoctorsListView(),
+        ],
       ),
     ));
   }

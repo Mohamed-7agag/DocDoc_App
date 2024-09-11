@@ -1,3 +1,4 @@
+import 'package:doctors_app/core/helpers/navigator_handler.dart';
 import 'package:doctors_app/core/routing/app_router.dart';
 import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/theming/app_colors.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) {
         return MaterialApp(
+          navigatorKey: NavigationHandler.navigatorKey,
           theme: ThemeData.light().copyWith(
             textTheme: GoogleFonts.interTextTheme(
               ThemeData.light().textTheme,
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
           },
           onGenerateRoute: AppRouter.generateRoute,
           initialRoute:
-              AppConstants.isLogging ? Routes.homeViewRoute : Routes.onBoardingViewRoute,
+              AppConstants.isLogging ? Routes.bottomBarViewRoute : Routes.onBoardingViewRoute,
           debugShowCheckedModeBanner: false,
         );
       },
