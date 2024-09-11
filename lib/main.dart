@@ -22,9 +22,9 @@ void main() async {
 Future<bool> isLoggingUser() async {
   String? token = await CacheHelper.getSecuredString(AppConstants.userToken);
   if (token.isNullOrEmpty()) {
-    isLogging = false;
+    AppConstants.isLogging = false;
   } else {
-    isLogging = true;
+    AppConstants.isLogging = true;
   }
-  return isLogging;
+  return AppConstants.isLogging;
 }

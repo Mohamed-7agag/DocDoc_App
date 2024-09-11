@@ -3,6 +3,7 @@ import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/features/auth/presentation/logic/auth_cubit/auth_cubit.dart';
 import 'package:doctors_app/features/auth/presentation/views/login_view.dart';
 import 'package:doctors_app/features/auth/presentation/views/register_view.dart';
+import 'package:doctors_app/features/home/presentation/logic/specialization_cubit/specialization_cubit.dart';
 import 'package:doctors_app/features/home/presentation/views/home_view.dart';
 import 'package:doctors_app/features/onborading/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,11 @@ class AppRouter {
       //! Home Route
       case Routes.homeViewRoute:
         return MaterialPageRoute(
-          builder: (_) => const HomeView(),
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                SpecializationCubit(getIt())..getSpecializationList(),
+            child: const HomeView(),
+          ),
         );
       default:
         return null;

@@ -3,6 +3,8 @@ import 'package:doctors_app/core/api/api_service.dart';
 import 'package:doctors_app/core/api/dio_factory.dart';
 import 'package:doctors_app/features/auth/data/repos/auth_repo.dart';
 import 'package:doctors_app/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:doctors_app/features/home/data/repos/specialization_repo_impl.dart';
+import 'package:doctors_app/features/home/data/repos/specialization_repo.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -15,4 +17,8 @@ void setupGetIt() {
   // auth repos
   getIt.registerLazySingleton<AuthRepo>(
       () => AuthRepoImpl(apiServices: getIt()));
+
+  // specialization repo
+  getIt.registerLazySingleton<SpecializationRepo>(
+      () => SpecializationRepoImpl(apiServices: getIt()));
 }

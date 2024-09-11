@@ -1,14 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'specialiazation_model.dart';
+part of 'specialization_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-SpecialiazationModel _$SpecialiazationModelFromJson(
-        Map<String, dynamic> json) =>
-    SpecialiazationModel(
+SpecializationModel _$SpecializationModelFromJson(Map<String, dynamic> json) =>
+    SpecializationModel(
       message: json['message'] as String?,
       data: (json['data'] as List<dynamic>?)
           ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
@@ -17,8 +16,8 @@ SpecialiazationModel _$SpecialiazationModelFromJson(
       code: (json['code'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$SpecialiazationModelToJson(
-        SpecialiazationModel instance) =>
+Map<String, dynamic> _$SpecializationModelToJson(
+        SpecializationModel instance) =>
     <String, dynamic>{
       'message': instance.message,
       'data': instance.data,
