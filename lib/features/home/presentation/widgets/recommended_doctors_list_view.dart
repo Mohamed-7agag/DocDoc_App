@@ -4,10 +4,10 @@ import 'package:doctors_app/features/home/presentation/logic/specialization_cubi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'doctor_item.dart';
+import 'recommended_doctor_item.dart';
 
-class DoctorsListView extends StatelessWidget {
-  const DoctorsListView({super.key});
+class RecommendedDoctorsListView extends StatelessWidget {
+  const RecommendedDoctorsListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,8 @@ class DoctorsListView extends StatelessWidget {
             current is DoctorsListSuccess || current is DoctorsListFailure,
         builder: (context, state) {
           return switch (state) {
-            DoctorsListSuccess() => _DoctorsList(doctors: state.doctorsList),
+            DoctorsListSuccess() =>
+              _DoctorsList(doctors: state.recommendedDoctorList),
             DoctorsListFailure() => Center(child: Text(state.errMessage)),
             _ => const SizedBox.shrink(),
           };
@@ -30,15 +31,18 @@ class DoctorsListView extends StatelessWidget {
 class _DoctorsList extends StatelessWidget {
   const _DoctorsList({required this.doctors});
 
-  final List<Doctor> doctors;
+  final List<Doctor?> doctors;
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       itemCount: doctors.length,
-      separatorBuilder: (context, index) => verticalSpace(12),
+      separatorBuilder: (context, index) => verticalSpace(16),
       itemBuilder: (BuildContext context, int index) {
-        return DoctorItem(doctor: doctors[index]);
+        return RecommendedDoctorItem(
+          doctor: doctors[index] ?? const Doctor(),
+          index: (index % 5) + 1,
+        );
       },
     );
   }

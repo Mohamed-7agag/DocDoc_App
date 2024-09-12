@@ -31,7 +31,7 @@ class CustomBottomBar extends StatelessWidget {
 
   Widget _buildBottomBarContainer() {
     return Container(
-      height: 64.h,
+      height: 60.h,
       decoration: _buildBottomBarDecoration(),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,

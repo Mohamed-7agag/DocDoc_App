@@ -1,5 +1,5 @@
 import 'package:doctors_app/core/helpers/spacing.dart';
-import 'package:doctors_app/features/home/presentation/widgets/doctors_list_view.dart';
+import 'package:doctors_app/features/home/presentation/widgets/recommended_doctors_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,10 +20,10 @@ class HomeView extends StatelessWidget {
           verticalSpace(12),
           const HomeAppBarSection(),
           const HomeBannerSection(),
-          verticalSpace(24),
+          verticalSpace(18),
           const DoctorSpecialitySection(),
-          verticalSpace(32),
-          const DoctorsListView(),
+          verticalSpace(30),
+          const RecommendedDoctorsSection()
         ],
       ),
     ));

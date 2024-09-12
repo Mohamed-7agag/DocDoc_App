@@ -4,7 +4,9 @@ import 'package:doctors_app/features/auth/presentation/logic/auth_cubit/auth_cub
 import 'package:doctors_app/features/auth/presentation/views/login_view.dart';
 import 'package:doctors_app/features/auth/presentation/views/register_view.dart';
 import 'package:doctors_app/features/bottom_bar/bottom_bar_view.dart';
+import 'package:doctors_app/features/home/data/models/specialiazation_model/datum.dart';
 import 'package:doctors_app/features/home/presentation/logic/specialization_cubit/specialization_cubit.dart';
+import 'package:doctors_app/features/home/presentation/views/all_specialities_grid_view.dart';
 import 'package:doctors_app/features/home/presentation/views/home_view.dart';
 import 'package:doctors_app/features/home/presentation/views/notification_view.dart';
 import 'package:doctors_app/features/onborading/views/onboarding_view.dart';
@@ -50,6 +52,11 @@ class AppRouter {
       //! Notification Route
       case Routes.notificationViewRoute:
         return MaterialPageRoute(builder: (_) => const NotificationView());
+      //! All Specialities Route
+      case Routes.allSpecialitiesGridViewRoute:
+        final args = settings.arguments as List<Datum>;
+        return MaterialPageRoute(
+            builder: (_) => AllSpecialitiesGridView(allSpecialitiesList: args));
       default:
         return null;
     }

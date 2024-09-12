@@ -22,43 +22,27 @@ class SpecializationCubit extends Cubit<SpecializationState> {
       (failure) => emit(SpecializationFailure(errMessage: failure.errMessage)),
       (specializationModel) {
         _specializationDataList = specializationModel.data ?? [];
-        if (_specializationDataList.isNotEmpty) {
-          getDoctorsList(_specializationDataList.first.id ?? 1);
-        }
+        getRecommendedDoctorsList();
         emit(SpecializationSuccess(specializationModel: specializationModel));
       },
     );
   }
 
-  /// Fetches the list of doctors for a given [specializationId]
-  void getDoctorsList(int specializationId) {
+  /// Fetches the list of recommended doctors
+  void getRecommendedDoctorsList() {
     try {
-      final doctorList = _specializationDataList
-              .firstWhere((e) => e.id == specializationId)
-              .doctors ??
-          [];
-      if (doctorList.isNullOrEmpty()) {
+      final recommendedDoctorList = _specializationDataList
+          .map((specialization) => specialization.doctors?.first)
+          .toList();
+      if (recommendedDoctorList.isNullOrEmpty()) {
         emit(const DoctorsListFailure(errMessage: 'No Doctors Found'));
       } else {
-        emit(DoctorsListSuccess(doctorsList: doctorList));
+        emit(DoctorsListSuccess(recommendedDoctorList: recommendedDoctorList));
       }
     } catch (e) {
       emit(
         const DoctorsListFailure(errMessage: 'Failed to fetch doctors list'),
       );
     }
-  }
-
-  @override
-  void onChange(Change<SpecializationState> change) {
-    super.onChange(change);
-    print(
-        'SpecializationCubit - ${change.currentState.runtimeType}: ${change.nextState.runtimeType}');
-  }
-
-  @override
-  void onError(Object error, StackTrace stackTrace) {
-    super.onError(error, stackTrace);
-    print('SpecializationCubit - Error: $error');
   }
 }
