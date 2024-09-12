@@ -17,7 +17,7 @@ class SpecialityDoctorsListView extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 16.h),
             child: DoctorItem(
               doctor: specialityData.doctors![index],
-              index: (index % 5) + 1,
+              index: (index % 8) + 1,
             ),
           );
         },

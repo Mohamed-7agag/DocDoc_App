@@ -43,7 +43,7 @@ class _DoctorsList extends StatelessWidget {
           padding:  EdgeInsets.only(bottom: 16.h),
           child: DoctorItem(
             doctor: doctors[index] ?? const Doctor(),
-            index: (index % 5) + 1,
+            index: (index % 8) + 1,
           ),
         );
       },
