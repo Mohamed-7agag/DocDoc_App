@@ -6,6 +6,7 @@ import 'package:doctors_app/features/auth/presentation/views/register_view.dart'
 import 'package:doctors_app/features/bottom_bar/bottom_bar_view.dart';
 import 'package:doctors_app/features/home/presentation/logic/specialization_cubit/specialization_cubit.dart';
 import 'package:doctors_app/features/home/presentation/views/home_view.dart';
+import 'package:doctors_app/features/home/presentation/views/notification_view.dart';
 import 'package:doctors_app/features/onborading/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,7 +37,8 @@ class AppRouter {
       case Routes.bottomBarViewRoute:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => SpecializationCubit(getIt())..getSpecializationList(),
+            create: (context) =>
+                SpecializationCubit(getIt())..getSpecializationList(),
             child: const BottomBarView(),
           ),
         );
@@ -45,6 +47,9 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const HomeView(),
         );
+      //! Notification Route
+      case Routes.notificationViewRoute:
+        return MaterialPageRoute(builder: (_) => const NotificationView());
       default:
         return null;
     }

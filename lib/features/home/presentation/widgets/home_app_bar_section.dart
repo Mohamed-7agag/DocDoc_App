@@ -1,4 +1,6 @@
+import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
+import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/theming/app_colors.dart';
 import 'package:doctors_app/core/theming/app_style.dart';
 import 'package:flutter/material.dart';
@@ -22,10 +24,15 @@ class HomeAppBarSection extends StatelessWidget {
                     AppStyle.styleRegular11.copyWith(color: AppColors.grey80)),
           ],
         ),
-        CircleAvatar(
-          backgroundColor: AppColors.grey20,
-          radius: 24,
-          child: SvgPicture.asset('assets/images/notification.svg'),
+        GestureDetector(
+          onTap: () {
+            context.pushNamed(Routes.notificationViewRoute);
+          },
+          child: CircleAvatar(
+            backgroundColor: AppColors.grey20,
+            radius: 24,
+            child: SvgPicture.asset('assets/images/notification.svg'),
+          ),
         ),
       ],
     );
