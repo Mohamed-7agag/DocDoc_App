@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/app_colors.dart';
 import 'package:doctors_app/core/theming/app_style.dart';
 import 'package:doctors_app/features/home/presentation/widgets/yesterday_notification.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widgets/today_notification.dart';
 
@@ -36,11 +35,18 @@ class NotificationView extends StatelessWidget {
       backgroundColor: AppColors.white,
       title: Text('Notification', style: AppStyle.styleSemiBold18),
       centerTitle: true,
+      forceMaterialTransparency: true,
+      leadingWidth: 68.w,
       leading: IconButton(
         onPressed: () {
           context.pop();
         },
-        icon: const Icon(Icons.arrow_back_ios_new_rounded),
+        style: IconButton.styleFrom(
+          side: const BorderSide(color: AppColors.grey30),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        ),
+        icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 22),
       ),
     );
   }

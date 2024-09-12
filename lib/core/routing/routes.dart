@@ -6,4 +6,5 @@ abstract class Routes {
   static const String bottomBarViewRoute = "/bottomBarView";
   static const String notificationViewRoute = "/notificationView";
   static const String allSpecialitiesGridViewRoute = "/allSpecialitiesGridView";
+  static const String specialityDoctorsViewRoute = "/specialityDoctorsView";
 }

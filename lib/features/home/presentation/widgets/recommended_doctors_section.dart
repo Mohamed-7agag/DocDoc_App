@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/app_style.dart';
 import 'package:doctors_app/features/home/presentation/widgets/recommended_doctors_list_view.dart';
-import 'package:flutter/material.dart';
 
 class RecommendedDoctorsSection extends StatelessWidget {
   const RecommendedDoctorsSection({super.key});

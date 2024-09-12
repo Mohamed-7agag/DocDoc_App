@@ -9,6 +9,7 @@ import 'package:doctors_app/features/home/presentation/logic/specialization_cubi
 import 'package:doctors_app/features/home/presentation/views/all_specialities_grid_view.dart';
 import 'package:doctors_app/features/home/presentation/views/home_view.dart';
 import 'package:doctors_app/features/home/presentation/views/notification_view.dart';
+import 'package:doctors_app/features/home/presentation/views/speciality_doctors_view.dart';
 import 'package:doctors_app/features/onborading/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,6 +58,11 @@ class AppRouter {
         final args = settings.arguments as List<Datum>;
         return MaterialPageRoute(
             builder: (_) => AllSpecialitiesGridView(allSpecialitiesList: args));
+      //! Speciality Doctors Route
+      case Routes.specialityDoctorsViewRoute:
+        final args = settings.arguments as Datum;
+        return MaterialPageRoute(
+            builder: (_) => SpecialityDoctorsView(specialityData: args));
       default:
         return null;
     }

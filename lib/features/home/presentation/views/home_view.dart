@@ -1,7 +1,8 @@
-import 'package:doctors_app/core/helpers/spacing.dart';
-import 'package:doctors_app/features/home/presentation/widgets/recommended_doctors_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:doctors_app/core/helpers/spacing.dart';
+import 'package:doctors_app/features/home/presentation/widgets/recommended_doctors_section.dart';
 
 import '../widgets/doctor_speciality_section.dart';
 import '../widgets/home_app_bar_section.dart';

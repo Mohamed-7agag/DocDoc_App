@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/app_colors.dart';
 import 'package:doctors_app/core/theming/app_style.dart';
 import 'package:doctors_app/features/home/presentation/widgets/yesterday_notification_list_view.dart';
-import 'package:flutter/material.dart';
 
 class YesterdayNotification extends StatelessWidget {
   const YesterdayNotification({super.key});

@@ -1,4 +1,6 @@
+import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
+import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/theming/app_colors.dart';
 import 'package:doctors_app/core/theming/app_style.dart';
 import 'package:doctors_app/features/home/data/models/specialiazation_model/datum.dart';
@@ -13,7 +15,7 @@ class DoctorSpecialityItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // TODO: Navigate to doctor list screen
+        context.pushNamed(Routes.specialityDoctorsViewRoute,arguments: specialityData);
       },
       child: Column(
         children: [
