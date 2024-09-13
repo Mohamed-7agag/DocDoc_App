@@ -1,5 +1,5 @@
-import 'package:json_annotation/json_annotation.dart';
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 import 'city.dart';
 import 'specialization.dart';
@@ -7,7 +7,7 @@ import 'specialization.dart';
 part 'doctor.g.dart';
 
 @JsonSerializable()
-class Doctor extends Equatable {
+class DoctorModel extends Equatable {
   final int? id;
   final String? name;
   final String? email;
@@ -26,7 +26,7 @@ class Doctor extends Equatable {
   @JsonKey(name: 'end_time')
   final String? endTime;
 
-  const Doctor({
+  const DoctorModel({
     this.id,
     this.name,
     this.email,
@@ -43,7 +43,8 @@ class Doctor extends Equatable {
     this.endTime,
   });
 
-  factory Doctor.fromJson(Map<String, dynamic> json) => _$DoctorFromJson(json);
+  factory DoctorModel.fromJson(Map<String, dynamic> json) =>
+      _$DoctorFromJson(json);
 
   Map<String, dynamic> toJson() => _$DoctorToJson(this);
 

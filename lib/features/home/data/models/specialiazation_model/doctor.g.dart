@@ -6,7 +6,7 @@ part of 'doctor.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Doctor _$DoctorFromJson(Map<String, dynamic> json) => Doctor(
+DoctorModel _$DoctorFromJson(Map<String, dynamic> json) => DoctorModel(
       id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
       email: json['email'] as String?,
@@ -28,7 +28,7 @@ Doctor _$DoctorFromJson(Map<String, dynamic> json) => Doctor(
       endTime: json['end_time'] as String?,
     );
 
-Map<String, dynamic> _$DoctorToJson(Doctor instance) => <String, dynamic>{
+Map<String, dynamic> _$DoctorToJson(DoctorModel instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'email': instance.email,

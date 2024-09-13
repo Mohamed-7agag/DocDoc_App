@@ -7,6 +7,7 @@ import 'package:doctors_app/features/bottom_bar/bottom_bar_view.dart';
 import 'package:doctors_app/features/home/data/models/specialiazation_model/datum.dart';
 import 'package:doctors_app/features/home/presentation/logic/specialization_cubit/specialization_cubit.dart';
 import 'package:doctors_app/features/home/presentation/views/all_specialities_grid_view.dart';
+import 'package:doctors_app/features/home/presentation/views/doctor_details_view.dart';
 import 'package:doctors_app/features/home/presentation/views/home_view.dart';
 import 'package:doctors_app/features/home/presentation/views/notification_view.dart';
 import 'package:doctors_app/features/home/presentation/views/speciality_doctors_view.dart';
@@ -52,17 +53,30 @@ class AppRouter {
         );
       //! Notification Route
       case Routes.notificationViewRoute:
-        return MaterialPageRoute(builder: (_) => const NotificationView());
+        return MaterialPageRoute(
+          builder: (_) => const NotificationView(),
+        );
       //! All Specialities Route
       case Routes.allSpecialitiesGridViewRoute:
         final args = settings.arguments as List<Datum>;
         return MaterialPageRoute(
-            builder: (_) => AllSpecialitiesGridView(allSpecialitiesList: args));
+          builder: (_) => AllSpecialitiesGridView(allSpecialitiesList: args),
+        );
       //! Speciality Doctors Route
       case Routes.specialityDoctorsViewRoute:
         final args = settings.arguments as Datum;
         return MaterialPageRoute(
-            builder: (_) => SpecialityDoctorsView(specialityData: args));
+          builder: (_) => SpecialityDoctorsView(specialityData: args),
+        );
+      //! Doctor Details Route
+      case Routes.doctorDetailsViewRoute:
+        final args = settings.arguments as List;
+        return MaterialPageRoute(
+          builder: (_) => DoctorDetailsView(
+            doctorModel: args[0],
+            index: args[1],
+          ),
+        );
       default:
         return null;
     }

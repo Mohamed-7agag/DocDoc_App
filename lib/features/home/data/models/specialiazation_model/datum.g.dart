@@ -10,7 +10,7 @@ Datum _$DatumFromJson(Map<String, dynamic> json) => Datum(
       id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
       doctors: (json['doctors'] as List<dynamic>?)
-          ?.map((e) => Doctor.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => DoctorModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

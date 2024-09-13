@@ -1,5 +1,5 @@
-import 'package:json_annotation/json_annotation.dart';
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 import 'doctor.dart';
 
@@ -9,7 +9,7 @@ part 'datum.g.dart';
 class Datum extends Equatable {
   final int? id;
   final String? name;
-  final List<Doctor>? doctors;
+  final List<DoctorModel>? doctors;
 
   const Datum({this.id, this.name, this.doctors});
 

@@ -25,9 +25,10 @@ final class SpecializationLoading extends SpecializationState {}
 
 //! for doctors list
 final class DoctorsListSuccess extends SpecializationState {
-  final List<Doctor?> recommendedDoctorList;
+  final List<DoctorModel?> recommendedDoctorList;
   const DoctorsListSuccess({required this.recommendedDoctorList});
 }
+
 final class DoctorsListFailure extends SpecializationState {
   final String errMessage;
   const DoctorsListFailure({required this.errMessage});
