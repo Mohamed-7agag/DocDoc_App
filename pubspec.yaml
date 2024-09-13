@@ -28,6 +28,7 @@ dependencies:
   internet_connection_checker: ^2.0.0
   json_annotation: ^4.9.0
   pretty_dio_logger: ^1.4.0
+  skeletonizer: ^1.4.2
   shared_preferences: ^2.3.2
 
 dev_dependencies:
@@ -37,6 +38,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   json_serializable: ^6.8.0
+  
 
 flutter_icons:
   android: "launcher_icon"

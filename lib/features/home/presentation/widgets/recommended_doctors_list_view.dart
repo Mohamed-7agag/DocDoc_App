@@ -1,3 +1,4 @@
+import 'package:doctors_app/core/utils/widgets/custom_loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +22,7 @@ class RecommendedDoctorsListView extends StatelessWidget {
             DoctorsListSuccess() =>
               _DoctorsList(doctors: state.recommendedDoctorList),
             DoctorsListFailure() => Center(child: Text(state.errMessage)),
-            _ => const SizedBox.shrink(),
+            _ => const CustomLoadingWidget(),
           };
         },
       ),

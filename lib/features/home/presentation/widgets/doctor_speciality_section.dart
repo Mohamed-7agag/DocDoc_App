@@ -1,4 +1,6 @@
 import 'package:doctors_app/core/helpers/spacing.dart';
+import 'package:doctors_app/core/utils/widgets/custom_failure_widget.dart';
+import 'package:doctors_app/core/utils/widgets/custom_loading_widget.dart';
 import 'package:doctors_app/features/home/presentation/logic/specialization_cubit/specialization_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,9 +27,9 @@ class DoctorSpecialitySection extends StatelessWidget {
           ],
         );
       } else if (state is SpecializationFailure) {
-        return Center(child: Text(state.errMessage));
+        return CustomFailureWidget(errMessage: state.errMessage);
       }
-      return const Center(child: CircularProgressIndicator());
+      return const CustomLoadingWidget();
     });
   }
 }

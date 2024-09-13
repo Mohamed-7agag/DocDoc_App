@@ -17,6 +17,7 @@ class HomeView extends StatelessWidget {
         body: Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           verticalSpace(12),
           const HomeAppBarSection(),

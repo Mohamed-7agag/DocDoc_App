@@ -1,12 +1,13 @@
+import 'package:doctors_app/features/home/data/models/specialiazation_model/datum.dart';
+import 'package:doctors_app/features/home/presentation/widgets/doctor_speciality_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:doctors_app/features/home/data/models/specialiazation_model/datum.dart';
-import 'package:doctors_app/features/home/presentation/widgets/doctor_speciality_item.dart';
-
 class DoctorSpecialityHorizontalListView extends StatelessWidget {
-  const DoctorSpecialityHorizontalListView(
-      {super.key, required this.specializationDataList});
+  const DoctorSpecialityHorizontalListView({
+    super.key,
+    required this.specializationDataList,
+  });
   final List<Datum> specializationDataList;
   @override
   Widget build(BuildContext context) {
