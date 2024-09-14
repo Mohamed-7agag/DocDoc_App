@@ -21,6 +21,7 @@ class EasyStepperWidget extends StatelessWidget {
       activeStepTextColor: AppColors.primaryColor,
       lineStyle: LineStyle(
         lineLength: 70.w,
+        unreachedLineColor: Colors.grey,
         finishedLineColor: Colors.green,
         activeLineColor: AppColors.primaryColor,
         lineType: LineType.normal,

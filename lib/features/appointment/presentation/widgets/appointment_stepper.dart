@@ -1,7 +1,3 @@
-import 'package:easy_stepper/easy_stepper.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/app_colors.dart';
 import 'package:doctors_app/core/theming/app_style.dart';
@@ -10,6 +6,9 @@ import 'package:doctors_app/features/appointment/presentation/views/date_and_tim
 import 'package:doctors_app/features/appointment/presentation/views/payment_view.dart';
 import 'package:doctors_app/features/appointment/presentation/views/summary_view.dart';
 import 'package:doctors_app/features/appointment/presentation/widgets/easy_stepper_widget.dart';
+import 'package:easy_stepper/easy_stepper.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppointmentStepper extends StatefulWidget {
   const AppointmentStepper({super.key});
@@ -74,11 +73,19 @@ class _AppointmentStepperState extends State<AppointmentStepper> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  appointmentScreens[_activeStep],
-                  const Spacer(),
+                  Expanded(
+                    child: PageView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 3,
+                      itemBuilder: (context, index) {
+                        return appointmentScreens[_activeStep];
+                      },
+                    ),
+                  ),
                   CustomButton(
-                    title: _activeStep == 2 ? 'Book Appointment' : 'Next',
+                    title: _activeStep == 2 ? 'Book Appointment' : 'Continue',
                     onPressed: () {
                       if (_activeStep == 2) {
                         // todo : go to appointment done screen
