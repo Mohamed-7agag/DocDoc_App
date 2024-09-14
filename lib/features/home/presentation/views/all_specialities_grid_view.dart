@@ -12,7 +12,7 @@ class AllSpecialitiesGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAllSpecialitiesAppBar(context),
+      appBar: _buildAllSpecialitiesAppBar(context),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
@@ -31,7 +31,7 @@ class AllSpecialitiesGridView extends StatelessWidget {
     );
   }
 
-  AppBar buildAllSpecialitiesAppBar(BuildContext context) {
+  AppBar _buildAllSpecialitiesAppBar(BuildContext context) {
     return AppBar(
       title: Text('All Specialities', style: AppStyle.styleSemiBold18),
       centerTitle: true,
@@ -40,9 +40,7 @@ class AllSpecialitiesGridView extends StatelessWidget {
       leadingWidth: 68.w,
       forceMaterialTransparency: true,
       leading: IconButton(
-        onPressed: () {
-          context.pop();
-        },
+        onPressed: () => context.pop(),
         style: IconButton.styleFrom(
           side: const BorderSide(color: AppColors.grey30),
           shape:

@@ -15,7 +15,7 @@ class SpecialityDoctorsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSpecialityDoctorsAppBar(context, specialityData.name ?? ''),
+      appBar: _buildSpecialityDoctorsAppBar(context, specialityData.name ?? ''),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -31,7 +31,7 @@ class SpecialityDoctorsView extends StatelessWidget {
     );
   }
 
-  AppBar buildSpecialityDoctorsAppBar(
+  AppBar _buildSpecialityDoctorsAppBar(
       BuildContext context, String specialityName) {
     return AppBar(
       title: Text('$specialityName Doctors', style: AppStyle.styleSemiBold18),
@@ -41,9 +41,7 @@ class SpecialityDoctorsView extends StatelessWidget {
       titleSpacing: 0,
       leadingWidth: 68.w,
       leading: IconButton(
-        onPressed: () {
-          context.pop();
-        },
+        onPressed: () => context.pop(),
         style: IconButton.styleFrom(
           side: const BorderSide(color: AppColors.grey30),
           shape:

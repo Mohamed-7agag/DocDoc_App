@@ -23,7 +23,7 @@ class DoctorDetailsView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            verticalSpace(28),
+            verticalSpace(18),
             DoctorItem(doctor: doctorModel, index: index),
             verticalSpace(32),
             DoctorDetailsSection(doctorModel: doctorModel)
@@ -42,9 +42,7 @@ class DoctorDetailsView extends StatelessWidget {
       leadingWidth: 68.w,
       forceMaterialTransparency: true,
       leading: IconButton(
-        onPressed: () {
-          context.pop();
-        },
+        onPressed: () => context.pop(),
         style: IconButton.styleFrom(
           side: const BorderSide(color: AppColors.grey30),
           shape:

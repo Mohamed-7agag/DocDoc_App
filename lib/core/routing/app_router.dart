@@ -1,5 +1,6 @@
 import 'package:doctors_app/core/di/dependency_injection.dart';
 import 'package:doctors_app/core/routing/routes.dart';
+import 'package:doctors_app/features/appointment/presentation/views/appointment_view.dart';
 import 'package:doctors_app/features/auth/presentation/logic/auth_cubit/auth_cubit.dart';
 import 'package:doctors_app/features/auth/presentation/views/login_view.dart';
 import 'package:doctors_app/features/auth/presentation/views/register_view.dart';
@@ -76,6 +77,11 @@ class AppRouter {
             doctorModel: args[0],
             index: args[1],
           ),
+        );
+      //! Doctor Details Route
+      case Routes.appointmentViewRoute:
+        return MaterialPageRoute(
+          builder: (_) => const AppointmentView(),
         );
       default:
         return null;

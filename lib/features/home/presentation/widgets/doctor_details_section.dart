@@ -1,4 +1,6 @@
+import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
+import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/theming/app_colors.dart';
 import 'package:doctors_app/core/theming/app_style.dart';
 import 'package:doctors_app/core/utils/widgets/custom_button.dart';
@@ -32,19 +34,37 @@ class DoctorDetailsSection extends StatelessWidget {
             ),
           ),
           verticalSpace(24),
-          DoctorDetailsItem(title: 'Email', value: doctorModel.email ?? ''),
+          DoctorDetailsItem(
+            title: 'Email',
+            value: doctorModel.email ?? '',
+          ),
           verticalSpace(24),
           DoctorDetailsItem(
-              title: 'Phone Number', value: doctorModel.phone ?? ''),
+            title: 'Phone Number',
+            value: doctorModel.phone ?? '',
+          ),
           verticalSpace(24),
-          DoctorDetailsItem(title: 'Address', value: doctorModel.address ?? ''),
+          DoctorDetailsItem(
+            title: 'Address',
+            value: doctorModel.address ?? '',
+          ),
           verticalSpace(24),
           DoctorDetailsItem(
             title: 'Working Time',
             value: '${doctorModel.startTime} - ${doctorModel.endTime}',
           ),
+          verticalSpace(24),
+          DoctorDetailsItem(
+            title: 'City And Governrate',
+            value:
+                '${doctorModel.city?.name ?? ''} - ${doctorModel.city?.governrate?.name ?? ''}',
+          ),
           const Spacer(),
-          CustomButton(title: 'Make An Appointment', onPressed: () {}),
+          CustomButton(
+              title: 'Make An Appointment',
+              onPressed: () {
+                context.pushNamed(Routes.appointmentViewRoute);
+              }),
           verticalSpace(20),
         ],
       ),
