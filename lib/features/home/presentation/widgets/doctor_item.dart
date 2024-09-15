@@ -8,20 +8,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorItem extends StatelessWidget {
-  const DoctorItem({super.key, required this.doctor, required this.index, this.isInDetailsView = false});
+  const DoctorItem(
+      {super.key,
+      required this.doctor,
+      required this.index,
+      this.isInDetailsView = false});
   final DoctorModel doctor;
   final int index;
   final bool? isInDetailsView;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        if(isInDetailsView == true) return;
-        context.pushNamed(Routes.doctorDetailsViewRoute,arguments: [doctor,index]);
+      onTap: () {
+        if (isInDetailsView == true) return;
+        context.pushNamed(Routes.doctorDetailsViewRoute,
+            arguments: [doctor, index]);
       },
       child: Row(
         children: [
-          Image.asset('assets/images/dr$index.png', width: 110.w),
+          Image.asset('assets/images/dr$index.png', width: 105.w),
           horizontalSpace(16),
           Expanded(
             child: Column(

@@ -1,7 +1,9 @@
 import 'package:doctors_app/core/theming/app_colors.dart';
 import 'package:doctors_app/features/appointment/data/models/appointment_type_item_model.dart';
+import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_cubit.dart';
 import 'package:doctors_app/features/appointment/presentation/widgets/appointment_radio_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PaymentOptionsSection extends StatefulWidget {
@@ -49,6 +51,9 @@ final List<AppointmentRadioItemModel> paymentOptionsList = [
         return GestureDetector(
           onTap: () {
             setState(() => selectedIndex = index);
+            context
+                .read<BookAppointmentCubit>()
+                .setPaymentType(paymentOptionsList[index]);
           },
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10.h),

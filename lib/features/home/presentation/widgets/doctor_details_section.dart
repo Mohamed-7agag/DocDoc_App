@@ -10,8 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorDetailsSection extends StatelessWidget {
-  const DoctorDetailsSection({super.key, required this.doctorModel});
+  const DoctorDetailsSection({super.key, required this.doctorModel, required this.index});
   final DoctorModel doctorModel;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -65,7 +66,7 @@ class DoctorDetailsSection extends StatelessWidget {
               onPressed: () {
                 context.pushNamed(
                   Routes.appointmentViewRoute,
-                  arguments: doctorModel,
+                  arguments: [doctorModel,index],
                 );
               }),
           verticalSpace(20),

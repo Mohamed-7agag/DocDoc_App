@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:doctors_app/features/appointment/presentation/logic/date_and_time_cubit.dart';
+import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_cubit.dart';
 import 'package:doctors_app/features/appointment/presentation/widgets/choose_time_grid_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -56,11 +56,13 @@ class _ChooseTimeGridViewState extends State<ChooseTimeGridView> {
     if (index % 2 != 0) {
       int hour = int.parse(timeList[index].substring(0, 2)) + 12;
       context
-          .read<DateAndTimeCubit>()
+          .read<BookAppointmentCubit>()
           .setTime('$hour:${timeList[index].substring(3, 6)}');
       log('$hour:${timeList[index].substring(3, 6)}');
     } else {
-      context.read<DateAndTimeCubit>().setTime(timeList[index].substring(0, 6));
+      context
+          .read<BookAppointmentCubit>()
+          .setTime(timeList[index].substring(0, 6));
       log(timeList[index].substring(0, 6));
     }
   }

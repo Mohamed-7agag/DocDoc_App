@@ -30,7 +30,7 @@ class DoctorDetailsView extends StatelessWidget {
               isInDetailsView: true,
             ),
             verticalSpace(32),
-            DoctorDetailsSection(doctorModel: doctorModel)
+            DoctorDetailsSection(doctorModel: doctorModel,index: index)
           ],
         ),
       ),

@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:doctors_app/core/theming/app_colors.dart';
 import 'package:doctors_app/core/utils/widgets/custom_cherry_toast.dart';
-import 'package:doctors_app/features/appointment/presentation/logic/date_and_time_cubit.dart';
+import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_cubit.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,7 +27,7 @@ class DateTimeLineWidget extends StatelessWidget {
       onDateChange: (selectedDate) {
         log(selectedDate.toString());
         if (selectedDate.isAfter(DateTime.now())) {
-          context.read<DateAndTimeCubit>().setDate(selectedDate);
+          context.read<BookAppointmentCubit>().setDate(selectedDate);
         } else {
           errorCherryToast(context, 'Error', 'Please select future date');
         }

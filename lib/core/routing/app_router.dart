@@ -6,7 +6,6 @@ import 'package:doctors_app/features/auth/presentation/views/login_view.dart';
 import 'package:doctors_app/features/auth/presentation/views/register_view.dart';
 import 'package:doctors_app/features/bottom_bar/bottom_bar_view.dart';
 import 'package:doctors_app/features/home/data/models/specialiazation_model/datum.dart';
-import 'package:doctors_app/features/home/data/models/specialiazation_model/doctor.dart';
 import 'package:doctors_app/features/home/presentation/logic/specialization_cubit/specialization_cubit.dart';
 import 'package:doctors_app/features/home/presentation/views/all_specialities_grid_view.dart';
 import 'package:doctors_app/features/home/presentation/views/doctor_details_view.dart';
@@ -81,10 +80,13 @@ class AppRouter {
         );
       //! Doctor Details Route
       case Routes.appointmentViewRoute:
-        final args = settings.arguments as DoctorModel;
+        final args = settings.arguments as List;
 
         return MaterialPageRoute(
-          builder: (_) => AppointmentView(doctorModel: args),
+          builder: (_) => AppointmentView(
+            doctorModel: args[0],
+            index: args[1],
+          ),
         );
       default:
         return null;

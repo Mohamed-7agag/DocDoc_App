@@ -2,7 +2,7 @@ import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/app_colors.dart';
 import 'package:doctors_app/core/theming/app_style.dart';
-import 'package:doctors_app/features/appointment/presentation/logic/date_and_time_cubit.dart';
+import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_cubit.dart';
 import 'package:doctors_app/features/home/data/models/specialiazation_model/doctor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,8 +11,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widgets/appointment_stepper.dart';
 
 class AppointmentView extends StatelessWidget {
-  const AppointmentView({super.key, required this.doctorModel});
+  const AppointmentView(
+      {super.key, required this.doctorModel, required this.index});
   final DoctorModel doctorModel;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +23,8 @@ class AppointmentView extends StatelessWidget {
         children: [
           verticalSpace(20),
           BlocProvider(
-            create: (context) => DateAndTimeCubit(),
-            child: AppointmentStepper(doctorModel: doctorModel),
+            create: (context) => BookAppointmentCubit(),
+            child: AppointmentStepper(doctorModel: doctorModel, index: index),
           ),
         ],
       ),

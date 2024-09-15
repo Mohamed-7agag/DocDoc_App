@@ -12,8 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppointmentStepper extends StatefulWidget {
-  const AppointmentStepper({super.key, required this.doctorModel});
+  const AppointmentStepper({super.key, required this.doctorModel, required this.index});
   final DoctorModel doctorModel;
+  final int index;
 
   @override
   State<AppointmentStepper> createState() => _AppointmentStepperState();
@@ -32,7 +33,7 @@ class _AppointmentStepperState extends State<AppointmentStepper> {
     return [
       const DateAndTimeView(),
       const PaymentView(),
-      SummaryView(doctorModel: widget.doctorModel),
+      SummaryView(doctorModel: widget.doctorModel,index: widget.index),
     ];
   }
 
