@@ -1,10 +1,13 @@
+import 'dart:developer';
+
+import 'package:doctors_app/features/appointment/presentation/logic/date_and_time_cubit.dart';
 import 'package:doctors_app/features/appointment/presentation/widgets/choose_time_grid_view_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChooseTimeGridView extends StatefulWidget {
   const ChooseTimeGridView({super.key});
-
   @override
   State<ChooseTimeGridView> createState() => _ChooseTimeGridViewState();
 }
@@ -12,11 +15,11 @@ class ChooseTimeGridView extends StatefulWidget {
 class _ChooseTimeGridViewState extends State<ChooseTimeGridView> {
   static const List<String> timeList = [
     '10:00 AM',
-    '5:00 PM',
+    '05:00 PM',
     '11:00 AM',
-    '7:00 PM',
+    '07:00 PM',
     '12:00 AM',
-    '8:00 PM',
+    '08:00 PM',
   ];
 
   int currentTimeindex = 0;
@@ -37,6 +40,7 @@ class _ChooseTimeGridViewState extends State<ChooseTimeGridView> {
         return GestureDetector(
           onTap: () {
             setState(() => currentTimeindex = index);
+            _passTimeToCubit(index, context);
           },
           child: ChooseTimeGridViewItem(
             currentTimeindex: currentTimeindex,
@@ -46,5 +50,18 @@ class _ChooseTimeGridViewState extends State<ChooseTimeGridView> {
         );
       },
     );
+  }
+
+  void _passTimeToCubit(int index, BuildContext context) {
+    if (index % 2 != 0) {
+      int hour = int.parse(timeList[index].substring(0, 2)) + 12;
+      context
+          .read<DateAndTimeCubit>()
+          .setTime('$hour:${timeList[index].substring(3, 6)}');
+      log('$hour:${timeList[index].substring(3, 6)}');
+    } else {
+      context.read<DateAndTimeCubit>().setTime(timeList[index].substring(0, 6));
+      log(timeList[index].substring(0, 6));
+    }
   }
 }

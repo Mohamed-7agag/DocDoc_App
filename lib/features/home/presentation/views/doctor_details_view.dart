@@ -24,7 +24,11 @@ class DoctorDetailsView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             verticalSpace(18),
-            DoctorItem(doctor: doctorModel, index: index),
+            DoctorItem(
+              doctor: doctorModel,
+              index: index,
+              isInDetailsView: true,
+            ),
             verticalSpace(32),
             DoctorDetailsSection(doctorModel: doctorModel)
           ],

@@ -1,6 +1,8 @@
 import 'package:doctors_app/core/theming/app_colors.dart';
+import 'package:doctors_app/features/appointment/presentation/logic/date_and_time_cubit.dart';
 import 'package:doctors_app/features/appointment/presentation/widgets/appointment_radio_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../data/models/appointment_type_item_model.dart';
@@ -14,16 +16,16 @@ class AppointmentTypeListView extends StatefulWidget {
 }
 
 class _AppointmentTypeListViewState extends State<AppointmentTypeListView> {
-  final List<AppointmentTypeItemModel> appointmentTypeList = [
-    const AppointmentTypeItemModel(
+  final List<AppointmentRadioItemModel> appointmentTypeList = [
+    const AppointmentRadioItemModel(
       title: 'In Person',
       image: 'assets/images/person.svg',
     ),
-    const AppointmentTypeItemModel(
+    const AppointmentRadioItemModel(
       title: 'Video Call',
       image: 'assets/images/video_call_appointment.svg',
     ),
-    const AppointmentTypeItemModel(
+    const AppointmentRadioItemModel(
       title: 'Phone Call',
       image: 'assets/images/phone.svg',
     ),
@@ -43,6 +45,7 @@ class _AppointmentTypeListViewState extends State<AppointmentTypeListView> {
         return GestureDetector(
           onTap: () {
             setState(() => selectedIndex = index);
+            context.read<DateAndTimeCubit>().setType(appointmentTypeList[index].title);
           },
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10.h).copyWith(

@@ -1,8 +1,8 @@
-class AppointmentTypeItemModel {
+class AppointmentRadioItemModel {
   final String title;
   final String image;
 
-  const AppointmentTypeItemModel({
+  const AppointmentRadioItemModel({
     required this.title,
     required this.image,
   });

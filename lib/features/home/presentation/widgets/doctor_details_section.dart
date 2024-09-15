@@ -63,7 +63,10 @@ class DoctorDetailsSection extends StatelessWidget {
           CustomButton(
               title: 'Make An Appointment',
               onPressed: () {
-                context.pushNamed(Routes.appointmentViewRoute);
+                context.pushNamed(
+                  Routes.appointmentViewRoute,
+                  arguments: doctorModel,
+                );
               }),
           verticalSpace(20),
         ],

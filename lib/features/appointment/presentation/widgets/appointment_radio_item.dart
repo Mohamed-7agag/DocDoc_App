@@ -13,7 +13,7 @@ class AppointmentRadioItem extends StatelessWidget {
     required this.appointmentTypeItemModel,
     required this.isSelected,
   });
-  final AppointmentTypeItemModel appointmentTypeItemModel;
+  final AppointmentRadioItemModel appointmentTypeItemModel;
   final bool isSelected;
 
   @override
@@ -34,8 +34,8 @@ class AppointmentRadioItem extends StatelessWidget {
         const Spacer(),
         // Radio Button
         Container(
-          width: 17,
-          height: 17,
+          width: 18,
+          height: 18,
           margin: EdgeInsets.only(right: 12.w),
           padding: const EdgeInsets.all(2),
           decoration: BoxDecoration(

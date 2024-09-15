@@ -6,12 +6,14 @@ import 'package:doctors_app/features/appointment/presentation/views/date_and_tim
 import 'package:doctors_app/features/appointment/presentation/views/payment_view.dart';
 import 'package:doctors_app/features/appointment/presentation/views/summary_view.dart';
 import 'package:doctors_app/features/appointment/presentation/widgets/easy_stepper_widget.dart';
+import 'package:doctors_app/features/home/data/models/specialiazation_model/doctor.dart';
 import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppointmentStepper extends StatefulWidget {
-  const AppointmentStepper({super.key});
+  const AppointmentStepper({super.key, required this.doctorModel});
+  final DoctorModel doctorModel;
 
   @override
   State<AppointmentStepper> createState() => _AppointmentStepperState();
@@ -26,11 +28,13 @@ class _AppointmentStepperState extends State<AppointmentStepper> {
     });
   }
 
-  List<Widget> appointmentScreens = [
-    const DateAndTimeView(),
-    const PaymentView(),
-    const SummaryView(),
-  ];
+  List<Widget> appointmentScreens() {
+    return [
+      const DateAndTimeView(),
+      const PaymentView(),
+      SummaryView(doctorModel: widget.doctorModel),
+    ];
+  }
 
   Color textColor(int step) {
     if (step == _activeStep) {
@@ -80,7 +84,7 @@ class _AppointmentStepperState extends State<AppointmentStepper> {
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: 3,
                       itemBuilder: (context, index) {
-                        return appointmentScreens[_activeStep];
+                        return appointmentScreens()[_activeStep];
                       },
                     ),
                   ),

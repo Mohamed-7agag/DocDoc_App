@@ -8,13 +8,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorItem extends StatelessWidget {
-  const DoctorItem({super.key, required this.doctor, required this.index});
+  const DoctorItem({super.key, required this.doctor, required this.index, this.isInDetailsView = false});
   final DoctorModel doctor;
   final int index;
+  final bool? isInDetailsView;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
+        if(isInDetailsView == true) return;
         context.pushNamed(Routes.doctorDetailsViewRoute,arguments: [doctor,index]);
       },
       child: Row(
