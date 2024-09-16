@@ -1,5 +1,5 @@
 import 'package:doctors_app/core/theming/app_colors.dart';
-import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_cubit.dart';
+import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_info_cubit.dart';
 import 'package:doctors_app/features/appointment/presentation/widgets/appointment_radio_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,7 +46,7 @@ class _AppointmentTypeListViewState extends State<AppointmentTypeListView> {
           onTap: () {
             setState(() => selectedIndex = index);
             context
-                .read<BookAppointmentCubit>()
+                .read<BookAppointmentInfoCubit>()
                 .setType(appointmentTypeList[index].title);
           },
           child: Padding(

@@ -1,6 +1,6 @@
 import 'package:doctors_app/core/theming/app_colors.dart';
 import 'package:doctors_app/features/appointment/data/models/appointment_type_item_model.dart';
-import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_cubit.dart';
+import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_info_cubit.dart';
 import 'package:doctors_app/features/appointment/presentation/widgets/appointment_radio_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,8 +14,7 @@ class PaymentOptionsSection extends StatefulWidget {
 }
 
 class _PaymentOptionsSectionState extends State<PaymentOptionsSection> {
-
-final List<AppointmentRadioItemModel> paymentOptionsList = [
+  final List<AppointmentRadioItemModel> paymentOptionsList = [
     const AppointmentRadioItemModel(
       title: 'Paypal',
       image: 'assets/images/paypal.svg',
@@ -52,7 +51,7 @@ final List<AppointmentRadioItemModel> paymentOptionsList = [
           onTap: () {
             setState(() => selectedIndex = index);
             context
-                .read<BookAppointmentCubit>()
+                .read<BookAppointmentInfoCubit>()
                 .setPaymentType(paymentOptionsList[index]);
           },
           child: Padding(

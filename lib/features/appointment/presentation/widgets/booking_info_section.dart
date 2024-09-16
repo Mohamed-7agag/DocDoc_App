@@ -2,7 +2,8 @@ import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/app_colors.dart';
 import 'package:doctors_app/core/theming/app_style.dart';
 import 'package:doctors_app/features/appointment/data/models/booking_info_model.dart';
-import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_cubit.dart';
+import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_info_cubit.dart';
+import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_info_state.dart';
 import 'package:doctors_app/features/appointment/presentation/widgets/booking_info_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,7 +14,7 @@ class BookingInfoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BookAppointmentCubit, BookAppointmentState>(
+    return BlocBuilder<BookAppointmentInfoCubit, BookAppointmentInfoState>(
       builder: (context, state) {
         return Column(
           children: [

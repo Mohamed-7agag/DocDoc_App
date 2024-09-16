@@ -44,9 +44,9 @@ class DoctorModel extends Equatable {
   });
 
   factory DoctorModel.fromJson(Map<String, dynamic> json) =>
-      _$DoctorFromJson(json);
+      _$DoctorModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DoctorToJson(this);
+  Map<String, dynamic> toJson() => _$DoctorModelToJson(this);
 
   @override
   List<Object?> get props => [

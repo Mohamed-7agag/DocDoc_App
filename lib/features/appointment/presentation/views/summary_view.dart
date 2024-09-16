@@ -1,6 +1,7 @@
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/theming/app_style.dart';
-import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_cubit.dart';
+import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_info_cubit.dart';
+import 'package:doctors_app/features/appointment/presentation/logic/book_appointment_info_state.dart';
 import 'package:doctors_app/features/home/data/models/specialiazation_model/doctor.dart';
 import 'package:doctors_app/features/home/presentation/widgets/doctor_item.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class SummaryView extends StatelessWidget {
           verticalSpace(24),
           Text('Payment Information', style: AppStyle.styleSemiBold16),
           verticalSpace(20),
-          BlocBuilder<BookAppointmentCubit, BookAppointmentState>(
+          BlocBuilder<BookAppointmentInfoCubit, BookAppointmentInfoState>(
             builder: (context, state) {
               return Row(
                 children: [
