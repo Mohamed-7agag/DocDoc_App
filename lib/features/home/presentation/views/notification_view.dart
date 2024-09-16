@@ -1,7 +1,5 @@
-import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
-import 'package:doctors_app/core/theming/app_colors.dart';
-import 'package:doctors_app/core/theming/app_style.dart';
+import 'package:doctors_app/core/utils/widgets/custom_app_bar.dart';
 import 'package:doctors_app/features/home/presentation/widgets/yesterday_notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +12,7 @@ class NotificationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildNotificationAppBar(context),
+      appBar: buildAppBar(context, 'Notification'),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.w),
         child: Column(
@@ -25,26 +23,6 @@ class NotificationView extends StatelessWidget {
             const YesterdayNotification(),
           ],
         ),
-      ),
-    );
-  }
-
-  AppBar _buildNotificationAppBar(BuildContext context) {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: AppColors.white,
-      title: Text('Notification', style: AppStyle.styleSemiBold18),
-      centerTitle: true,
-      forceMaterialTransparency: true,
-      leadingWidth: 68.w,
-      leading: IconButton(
-        onPressed: () => context.pop(),
-        style: IconButton.styleFrom(
-          side: const BorderSide(color: AppColors.grey30),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        ),
-        icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 22),
       ),
     );
   }

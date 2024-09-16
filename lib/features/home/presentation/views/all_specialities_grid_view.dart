@@ -1,6 +1,4 @@
-import 'package:doctors_app/core/helpers/extensions.dart';
-import 'package:doctors_app/core/theming/app_colors.dart';
-import 'package:doctors_app/core/theming/app_style.dart';
+import 'package:doctors_app/core/utils/widgets/custom_app_bar.dart';
 import 'package:doctors_app/features/home/data/models/specialiazation_model/datum.dart';
 import 'package:doctors_app/features/home/presentation/widgets/doctor_speciality_item.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +10,7 @@ class AllSpecialitiesGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAllSpecialitiesAppBar(context),
+      appBar: buildAppBar(context, 'All Specialities'),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
@@ -27,26 +25,6 @@ class AllSpecialitiesGridView extends StatelessWidget {
             },
           ),
         ),
-      ),
-    );
-  }
-
-  AppBar _buildAllSpecialitiesAppBar(BuildContext context) {
-    return AppBar(
-      title: Text('All Specialities', style: AppStyle.styleSemiBold18),
-      centerTitle: true,
-      elevation: 0,
-      backgroundColor: AppColors.white,
-      leadingWidth: 68.w,
-      forceMaterialTransparency: true,
-      leading: IconButton(
-        onPressed: () => context.pop(),
-        style: IconButton.styleFrom(
-          side: const BorderSide(color: AppColors.grey30),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        ),
-        icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 22),
       ),
     );
   }

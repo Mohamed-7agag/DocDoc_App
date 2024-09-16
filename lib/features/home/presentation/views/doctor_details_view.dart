@@ -1,7 +1,5 @@
-import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
-import 'package:doctors_app/core/theming/app_colors.dart';
-import 'package:doctors_app/core/theming/app_style.dart';
+import 'package:doctors_app/core/utils/widgets/custom_app_bar.dart';
 import 'package:doctors_app/features/home/data/models/specialiazation_model/doctor.dart';
 import 'package:doctors_app/features/home/presentation/widgets/doctor_item.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +15,7 @@ class DoctorDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildDoctorDetailsAppBar(context, doctorModel.name ?? ''),
+      appBar: buildAppBar(context, doctorModel.name ?? ''),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
@@ -30,29 +28,9 @@ class DoctorDetailsView extends StatelessWidget {
               isInDetailsView: true,
             ),
             verticalSpace(32),
-            DoctorDetailsSection(doctorModel: doctorModel,index: index)
+            DoctorDetailsSection(doctorModel: doctorModel, index: index)
           ],
         ),
-      ),
-    );
-  }
-
-  AppBar _buildDoctorDetailsAppBar(BuildContext context, String doctorName) {
-    return AppBar(
-      title: Text(doctorName, style: AppStyle.styleSemiBold18),
-      centerTitle: true,
-      elevation: 0,
-      backgroundColor: AppColors.white,
-      leadingWidth: 68.w,
-      forceMaterialTransparency: true,
-      leading: IconButton(
-        onPressed: () => context.pop(),
-        style: IconButton.styleFrom(
-          side: const BorderSide(color: AppColors.grey30),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        ),
-        icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 22),
       ),
     );
   }

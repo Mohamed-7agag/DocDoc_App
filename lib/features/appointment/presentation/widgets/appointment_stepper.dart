@@ -136,7 +136,7 @@ class _AppointmentStepperState extends State<AppointmentStepper> {
                               context.read<AppointmentCubit>().bookAppointment(
                                     doctorId: widget.doctorModel.id.toString(),
                                     startTime: startTime,
-                                    notes: state.selectedPaymentType!.title,
+                                    notes: widget.index.toString(),
                                   );
                             } else {
                               _setActiveStep(_activeStep + 1);

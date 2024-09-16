@@ -1,6 +1,8 @@
-import 'package:doctors_app/features/appointment/data/repos/appointment_repo.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:doctors_app/features/appointment/data/models/my_appointment_response_model.dart';
+import 'package:doctors_app/features/appointment/data/repos/appointment_repo.dart';
 
 import '../../../data/models/book_appointment_request_model.dart';
 
@@ -27,6 +29,17 @@ class AppointmentCubit extends Cubit<AppointmentState> {
       (failure) => emit(AppointmentFailure(errMessage: failure.errMessage)),
       (success) => emit(
         const AppointmentSuccess(message: 'Appointment booked successfully'),
+      ),
+    );
+  }
+
+  Future<void> getMyAppointments() async {
+    emit(AppointmentLoading());
+    final result = await appointmentRepo.getAllMyAppointments();
+    result.fold(
+      (failure) => emit(AppointmentFailure(errMessage: failure.errMessage)),
+      (success) => emit(
+        GetMyAppointmentsSuccess(myAppointments: success),
       ),
     );
   }
