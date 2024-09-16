@@ -7,6 +7,7 @@ import 'package:doctors_app/features/auth/data/repos/auth_repo.dart';
 import 'package:doctors_app/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:doctors_app/features/home/data/repos/specialization_repo.dart';
 import 'package:doctors_app/features/home/data/repos/specialization_repo_impl.dart';
+import 'package:doctors_app/features/search/data/repos/search_repo.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -29,5 +30,9 @@ void setupGetIt() {
   // Appointment repo
   getIt.registerLazySingleton<AppointmentRepo>(
     () => AppointmentRepoImpl(apiServices: getIt()),
+  );
+  // search repo
+  getIt.registerLazySingleton(
+    () => SearchRepo(apiServices: getIt()),
   );
 }

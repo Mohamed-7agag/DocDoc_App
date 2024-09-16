@@ -12,4 +12,8 @@ const List<String> doctorsImages = [
   'assets/images/dr6.png',
   'assets/images/dr7.png',
   'assets/images/dr8.png',
+  'assets/images/dr9.png',
+  'assets/images/dr10.png',
+  'assets/images/dr11.png',
+  'assets/images/dr12.png',
 ];

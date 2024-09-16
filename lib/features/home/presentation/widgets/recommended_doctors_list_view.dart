@@ -1,3 +1,4 @@
+import 'package:doctors_app/core/utils/app_constants.dart';
 import 'package:doctors_app/core/utils/widgets/custom_loading_widget.dart';
 import 'package:doctors_app/features/home/data/models/specialiazation_model/doctor.dart';
 import 'package:doctors_app/features/home/presentation/logic/specialization_cubit/specialization_cubit.dart';
@@ -43,7 +44,7 @@ class _DoctorsList extends StatelessWidget {
           padding: EdgeInsets.only(bottom: 16.h),
           child: DoctorItem(
             doctor: doctors[index] ?? const DoctorModel(),
-            index: (index % 8) + 1,
+            index: (index % doctorsImages.length) + 1,
           ),
         );
       },

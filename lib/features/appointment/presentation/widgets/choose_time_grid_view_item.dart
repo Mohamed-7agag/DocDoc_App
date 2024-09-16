@@ -19,7 +19,7 @@ class ChooseTimeGridViewItem extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: currentTimeindex == gridIndex ? AppColors.primaryColor : null,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color:
               currentTimeindex == gridIndex ? Colors.transparent : AppColors.grey30,

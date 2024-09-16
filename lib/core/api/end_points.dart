@@ -6,4 +6,5 @@ abstract class EndPoint {
   static const String specialization = 'specialization/index';
   static const String storeAppointment = 'appointment/store';
   static const String getAllAppointment = 'appointment/index';
+  static String search(String doctorName) => 'doctor/doctor-search?name=$doctorName';
 }

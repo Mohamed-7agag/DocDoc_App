@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:doctors_app/core/utils/app_constants.dart';
 import 'package:doctors_app/features/home/data/models/specialiazation_model/datum.dart';
 import 'package:doctors_app/features/home/presentation/widgets/doctor_item.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SpecialityDoctorsListView extends StatelessWidget {
   const SpecialityDoctorsListView({super.key, required this.specialityData});
@@ -17,7 +17,7 @@ class SpecialityDoctorsListView extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 16.h),
             child: DoctorItem(
               doctor: specialityData.doctors![index],
-              index: (index % 8) + 1,
+              index: (index % doctorsImages.length) + 1,
             ),
           );
         },

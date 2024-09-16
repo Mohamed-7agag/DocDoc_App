@@ -13,16 +13,14 @@ class SpecialityDoctorsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context, '${specialityData.name} Doctors'),
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              verticalSpace(16),
-              SpecialityDoctorsListView(specialityData: specialityData),
-            ],
-          ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            verticalSpace(16),
+            SpecialityDoctorsListView(specialityData: specialityData),
+          ],
         ),
       ),
     );

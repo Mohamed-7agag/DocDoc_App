@@ -11,19 +11,17 @@ class AllSpecialitiesGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context, 'All Specialities'),
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, mainAxisSpacing: 16),
-            itemCount: allSpecialitiesList.length,
-            itemBuilder: (BuildContext context, int index) {
-              return DoctorSpecialityItem(
-                specialityData: allSpecialitiesList[index],
-              );
-            },
-          ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3, mainAxisSpacing: 16),
+          itemCount: allSpecialitiesList.length,
+          itemBuilder: (BuildContext context, int index) {
+            return DoctorSpecialityItem(
+              specialityData: allSpecialitiesList[index],
+            );
+          },
         ),
       ),
     );
