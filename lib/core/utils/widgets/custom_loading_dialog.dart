@@ -8,7 +8,7 @@ Future customLoadingDialog(BuildContext context) {
     context: context,
     dialogType: DialogType.noHeader,
     animType: AnimType.topSlide,
-    padding: EdgeInsets.symmetric(vertical: 40.h),
+    padding: EdgeInsets.symmetric(vertical: 50.h),
     body: const CircularProgressIndicator(
       color: AppColors.primaryColor,
     ),

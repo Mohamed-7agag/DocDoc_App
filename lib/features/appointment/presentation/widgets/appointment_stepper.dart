@@ -118,6 +118,7 @@ class _AppointmentStepperState extends State<AppointmentStepper> {
                           state.message,
                         );
                       } else if (state is AppointmentFailure) {
+                        //context.pop();
                         customErrorDialog(context, state.errMessage);
                       } else if (state is AppointmentLoading) {
                         customLoadingDialog(context);

@@ -7,6 +7,8 @@ import 'package:doctors_app/features/auth/data/repos/auth_repo.dart';
 import 'package:doctors_app/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:doctors_app/features/home/data/repos/specialization_repo.dart';
 import 'package:doctors_app/features/home/data/repos/specialization_repo_impl.dart';
+import 'package:doctors_app/features/profile/data/repos/profile_repo.dart';
+import 'package:doctors_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:doctors_app/features/search/data/repos/search_repo.dart';
 import 'package:get_it/get_it.dart';
 
@@ -34,5 +36,9 @@ void setupGetIt() {
   // search repo
   getIt.registerLazySingleton(
     () => SearchRepo(apiServices: getIt()),
+  );
+  // profile repo
+  getIt.registerLazySingleton<ProfileRepo>(
+    () => ProfileRepoImpl(apiServices: getIt()),
   );
 }

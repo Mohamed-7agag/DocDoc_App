@@ -3,11 +3,23 @@ import 'package:doctors_app/core/theming/app_colors.dart';
 import 'package:doctors_app/core/theming/app_style.dart';
 import 'package:flutter/material.dart';
 
-class CustomTextFormField extends StatelessWidget {
+class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField(
       {super.key, required this.hintText, required this.controller});
   final String hintText;
   final TextEditingController controller;
+
+  @override
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  @override
+  void dispose() {
+    widget.controller.dispose();
+    super.dispose();
+  }
+
   OutlineInputBorder buildBorder(Color borderSideColor) {
     return OutlineInputBorder(
       borderRadius: const BorderRadius.all(Radius.circular(16)),
@@ -18,7 +30,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
+      controller: widget.controller,
       validator: (value) {
         if (value.isNullOrEmpty()) {
           return 'This field is required';
@@ -27,7 +39,7 @@ class CustomTextFormField extends StatelessWidget {
       },
       cursorColor: AppColors.primaryColor,
       decoration: InputDecoration(
-        hintText: hintText,
+        hintText: widget.hintText,
         hintStyle: AppStyle.styleRegular14.copyWith(
           color: AppColors.grey50,
         ),

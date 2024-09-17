@@ -5,13 +5,13 @@ class ErrorModel extends Equatable {
   final String? message;
 
   const ErrorModel({required this.code, required this.message});
-  factory ErrorModel.fromJson(Map jsonData) {
+  factory ErrorModel.fromJson(Map<String, dynamic> json) {
     return ErrorModel(
-      message: jsonData["message"] as String?,
-      code: jsonData["code"] as int?,
+      message: json["message"] as String?,
+      code: json["code"] as int?,
     );
   }
 
   @override
-  List<Object?> get props => [code, message];
+  List<Object?> get props => [message, code];
 }

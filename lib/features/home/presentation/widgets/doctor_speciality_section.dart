@@ -14,22 +14,26 @@ class DoctorSpecialitySection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SpecializationCubit, SpecializationState>(
+        buildWhen: (previous, current) =>
+            current is SpecializationSuccess ||
+            current is SpecializationFailure ||
+            current is SpecializationLoading,
         builder: (context, state) {
-      if (state is SpecializationSuccess) {
-        return Column(
-          children: [
-            DoctorSpecialityAndSeeAllSection(
-                allSpecialitiesList: state.specializationModel.data ?? []),
-            verticalSpace(12),
-            DoctorSpecialityHorizontalListView(
-              specializationDataList: state.specializationModel.data ?? [],
-            ),
-          ],
-        );
-      } else if (state is SpecializationFailure) {
-        return CustomFailureWidget(errMessage: state.errMessage);
-      }
-      return const CustomLoadingWidget();
-    });
+          if (state is SpecializationSuccess) {
+            return Column(
+              children: [
+                DoctorSpecialityAndSeeAllSection(
+                    allSpecialitiesList: state.specializationModel.data ?? []),
+                verticalSpace(12),
+                DoctorSpecialityHorizontalListView(
+                  specializationDataList: state.specializationModel.data ?? [],
+                ),
+              ],
+            );
+          } else if (state is SpecializationFailure) {
+            return CustomFailureWidget(errMessage: state.errMessage);
+          }
+          return const CustomLoadingWidget();
+        });
   }
 }
