@@ -23,11 +23,11 @@ class ButtonAndDescription extends StatelessWidget {
           ),
           verticalSpace(32),
           CustomButton(
-              title: 'Get Started',
-              onPressed: () {
-                context.pushNamedAndRemoveUntil(Routes.loginViewRoute,
-                    predicate: (Route<dynamic> route) => false);
-              }),
+            title: 'Get Started',
+            onPressed: () {
+              context.pushReplacementNamed(Routes.loginViewRoute);
+            },
+          ),
         ],
       ),
     );

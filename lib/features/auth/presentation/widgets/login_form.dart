@@ -31,7 +31,10 @@ class LoginForm extends StatelessWidget {
           BlocListener<AuthCubit, AuthState>(
             listener: (context, state) {
               if (state is AuthLoginSuccess) {
-                context.pushReplacementNamed(Routes.bottomBarViewRoute);
+                context.pushNamedAndRemoveUntil(
+                  Routes.bottomBarViewRoute,
+                  predicate: (route) => false,
+                );
               } else if (state is AuthLoginFailure) {
                 context.pop();
                 customErrorDialog(context, state.errMessage);

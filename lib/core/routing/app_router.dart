@@ -20,7 +20,9 @@ class AppRouter {
     switch (settings.name) {
       //! Onboarding Route
       case Routes.onBoardingViewRoute:
-        return MaterialPageRoute(builder: (_) => const OnboardingView());
+        return MaterialPageRoute(
+          builder: (_) => const OnboardingView(),
+        );
       //! Login Route
       case Routes.loginViewRoute:
         return MaterialPageRoute(
