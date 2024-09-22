@@ -13,7 +13,7 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, "Search",hasLeading : false),
+      appBar: buildAppBar(context, "Search", hasLeading: false),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
