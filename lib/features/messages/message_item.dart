@@ -5,7 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MessageItem extends StatelessWidget {
-  const MessageItem({super.key, required this.index, required this.doctorName, required this.time});
+  const MessageItem({
+    super.key,
+    required this.index,
+    required this.doctorName,
+    required this.time,
+  });
   final int index;
   final String doctorName;
   final String time;
@@ -52,8 +57,9 @@ class MessageItem extends StatelessWidget {
                     width: 20,
                     height: 20,
                     decoration: BoxDecoration(
-                        color: AppColors.primaryColor,
-                        borderRadius: BorderRadius.circular(6)),
+                      color: AppColors.primaryColor,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
                     child: Text(
                       '2',
                       style: AppStyle.styleRegular10.copyWith(

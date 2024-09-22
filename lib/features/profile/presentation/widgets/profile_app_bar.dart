@@ -1,13 +1,12 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:doctors_app/core/helpers/extensions.dart';
 import 'package:doctors_app/core/helpers/spacing.dart';
 import 'package:doctors_app/core/routing/routes.dart';
 import 'package:doctors_app/core/theming/app_colors.dart';
 import 'package:doctors_app/core/theming/app_style.dart';
 import 'package:doctors_app/features/auth/presentation/logic/auth_cubit/auth_cubit.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 AppBar buildProfileAppBar(BuildContext context) {
   return AppBar(
@@ -16,10 +15,7 @@ AppBar buildProfileAppBar(BuildContext context) {
     elevation: 0,
     foregroundColor: AppColors.white,
     forceMaterialTransparency: true,
-    leading: IconButton(
-      onPressed: () => context.pop(),
-      icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 24),
-    ),
+    automaticallyImplyLeading: false,
     actions: [
       IconButton(
         onPressed: () {

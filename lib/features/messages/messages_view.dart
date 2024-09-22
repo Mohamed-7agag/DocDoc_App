@@ -17,7 +17,7 @@ class MessagesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, 'Messages'),
+      appBar: buildAppBar(context, 'Messages',hasLeading: false),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: ListView.separated(

@@ -13,7 +13,7 @@ class MyAppointmentsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, 'My Appointment'),
+      appBar: buildAppBar(context, 'My Appointment',hasLeading: false),
       body: BlocBuilder<AppointmentCubit, AppointmentState>(
         builder: (context, state) {
           if (state is GetMyAppointmentsSuccess) {
